@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Output } from '@angular/core'
+import { EventEmitter } from '@angular/core'
 import { Todos } from '../Todos'
+import { MessageService } from '../message.service'
+
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -17,23 +20,25 @@ export class TodosComponent implements OnInit {
       id: 2,
       name: 'low',
     },
-    { id: 3, name: 'normal' },
+    { id: 3, name: 'default' },
   ]
 
   todos: Todos[] = [
     {
       task: 'My Todo',
       isDone: false,
-      priority: '',
+      priority: 'Default',
     },
     {
       task: 'My other Todo',
       isDone: false,
-      priority: '',
+      priority: 'Default',
     },
   ]
 
-  constructor() {}
+  @Output() messageEvent = new EventEmitter<string>()
+
+  constructor(private message: MessageService) {}
 
   ngOnInit(): void {}
 
@@ -54,5 +59,13 @@ export class TodosComponent implements OnInit {
 
   deleteTask(task: string) {
     this.todos = this.todos.filter((todo) => todo.task !== task)
+  }
+
+  detail(pri: string) {
+    let messageTodo: Todos[] = this.todos.filter(
+      (todo) => todo.priority === pri,
+    )
+    console.log(messageTodo)
+    this.message.sendMessage(messageTodo)
   }
 }

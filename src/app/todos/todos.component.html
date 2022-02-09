@@ -27,4 +27,9 @@
     </p>
     <button class="remove-btn" (click)="deleteTask(todo.task)">Delete</button>
   </div>
+  <div class="go-important">
+    <p class="high" (click)="detail('High')">High</p>
+    <p class="default" (click)="detail('Default')">Default</p>
+    <p class="low" (click)="detail('Low')">Low</p>
+  </div>
 </div>
