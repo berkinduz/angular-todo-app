@@ -1,1 +1,30 @@
-<p>todos works!</p>
+<div class="todos">
+  <div class="input-part">
+    <select class="pri-select" [(ngModel)]="priority">
+      <option>Priority</option>
+      <option>High</option>
+      <option>Low</option>
+      <option>Default</option>
+    </select>
+    <form class="add-todo" (submit)="addTask()">
+      <input
+        type="text"
+        class="input-todo"
+        placeholder="Select Priority, Add some task and press enter..."
+        [(ngModel)]="newTask"
+        name="input-text"
+      />
+      <input type="Submit" class="todo-submit" value="" />
+    </form>
+  </div>
+
+  <div class="todo" *ngFor="let todo of todos; let i = index">
+    <p
+      class="todo-text {{ todo.isDone ? 'done' : '' }} {{ todo.priority }}"
+      (click)="doneTask(i)"
+    >
+      {{ todo.task }}
+    </p>
+    <button class="remove-btn" (click)="deleteTask(todo.task)">Delete</button>
+  </div>
+</div>

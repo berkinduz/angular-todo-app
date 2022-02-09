@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 2px solid black;
+  align-items: center;
+}
+
+.input-part {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.pri-select {
+  margin-bottom: 10px;
+  margin-right: 5px;
+  border-style: none;
+}
+
+.add-todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.input-todo {
+  width: 100%;
+  padding: 10px;
+}
+
+.todo-submit {
+  display: none;
+}
+
+.todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+.todo-text {
+  padding: 5px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.priority {
+  padding: 4px;
+}
+
+.High {
+  color: red;
+}
+
+.Low {
+  color: blue;
+}
+
+.remove-btn {
+  border-style: none;
+  padding: 5px;
+  font-size: 1rem;
+  height: 100%;
+
+  background-color: red;
+  color: white;
+}
+
+.todo:nth-child(2n) {
+  background-color: beige;
+}
